@@ -22,7 +22,10 @@ bot.onText(parseCommand('echo'), (msg, match) => {
   const chatId = msg.chat.id;
   const resp = match?.[1];
 
-  bot.sendMessage(chatId, resp || 'Пустое сообщение :(');
+  bot.sendMessage(
+    chatId,
+    JSON.stringify(msg, null, 2) || 'Пустое сообщение :('
+  );
 });
 
 bot.onText(parseCommand('send'), async (msg, match) => {
